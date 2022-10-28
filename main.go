@@ -8,6 +8,10 @@ import (
 	"github.com/jaypipes/ghw"
 )
 
+const (
+	DecodeToken = "c0ef529e570411ed9b6a0242ac120002"
+)
+
 func EncryptData() (string, error) {
 	bios, err := ghw.BIOS()
 	if err != nil {
