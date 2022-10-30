@@ -13,12 +13,12 @@ const (
 )
 
 func EncryptData() (string, error) {
-	ghw.WithDisableWarnings()
-	bios, err := ghw.BIOS()
+	opt := ghw.WithDisableWarnings()
+	bios, err := ghw.BIOS(opt)
 	if err != nil {
 		return "", err
 	}
-	gpu, err := ghw.GPU()
+	gpu, err := ghw.GPU(opt)
 	if err != nil {
 		return "", err
 	}
@@ -26,11 +26,11 @@ func EncryptData() (string, error) {
 	if len(gpu.GraphicsCards) > 0 {
 		Data = "-" + gpu.GraphicsCards[0].DeviceInfo.Product.ID
 	}
-	baseboard, err := ghw.Baseboard()
+	baseboard, err := ghw.Baseboard(opt)
 	if err != nil {
 		return "", err
 	}
-	product, err := ghw.Product()
+	product, err := ghw.Product(opt)
 	if err != nil {
 		return "", err
 	}
