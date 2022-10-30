@@ -13,6 +13,7 @@ const (
 )
 
 func EncryptData() (string, error) {
+	ghw.WithDisableWarnings()
 	bios, err := ghw.BIOS()
 	if err != nil {
 		return "", err
